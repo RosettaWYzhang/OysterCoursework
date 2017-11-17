@@ -1,13 +1,9 @@
 package test.tfl.billing;
 
-import static org.junit.Assert.*;
-import static org.junit.Assert.assertThat;
-
-import org.jmock.Expectations;
-import org.jmock.integration.junit4.JUnitRuleMockery;
-import org.junit.Assert;
-import org.junit.Rule;
 import org.junit.Test;
+
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 
 
@@ -56,14 +52,14 @@ public class MainTest {
         //mock A person who start from time a  to time b
         //calcualte the total fee whether correct or not
 
-
-        //example test to check database is empty
-        @Test
-        public void isInitialisedEmpty(){
-            UserID list = new UserID();
-            assertTrue(list.isEmpty());
-            assertThat(list.size(),is(0));
-        }
+//
+//        //example test to check database is empty
+//        @Test
+//        public void isInitialisedEmpty(){
+//            UserID list = new UserID();
+//            assertTrue(list.isEmpty());
+//            assertThat(list.size().is(0));
+//        }
 
         @Test
         public void checkCardScanned(){
