@@ -76,7 +76,7 @@ public class MainTest {
         }
 
         @Test
-        public void checkPeaktimeCorrectOrNot correct(){
+        public void checkPeaktimeCorrectOrNotcorrect(){
 
         }
 

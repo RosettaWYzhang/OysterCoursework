@@ -10,7 +10,7 @@ public class JourneyEventTest {
     public void readerId() throws Exception {
     }
 
-    @oTest
+    @Test
     public void time() throws Exception {
     }
 
