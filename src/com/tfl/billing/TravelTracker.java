@@ -31,7 +31,7 @@ public class TravelTracker implements ScanListener {
 
         List<Customer> customers = customerDatabase.getCustomers();
         for (Customer customer : customers) {
-            totalJourneysFor(customer);
+            NewVersionTotalJourneysFor(customer);
         }
     }
 
@@ -127,7 +127,8 @@ public class TravelTracker implements ScanListener {
             }
         }
 
-
+//
+//
         PaymentsSystem.getInstance().charge(customer, journeys, customerTotalCost );
     }
 

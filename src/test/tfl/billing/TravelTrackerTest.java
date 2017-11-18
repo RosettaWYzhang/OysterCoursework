@@ -14,4 +14,11 @@ public class TravelTrackerTest {
     public void cardScanned() throws Exception {
     }
 
+    @Test
+    public void checkCap() throws Exception{
+
+
+
+    }
+
 }
