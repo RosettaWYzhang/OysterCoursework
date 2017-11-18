@@ -19,7 +19,8 @@ public class TravelTracker implements ScanListener {
     static final BigDecimal PEAK_LONG_JOURNEY_PRICE = new BigDecimal(3.80);
     static final BigDecimal PEAK_SHORT_JOURNEY_PRICE = new BigDecimal(2.90);
 
-    private final List<JourneyEnd> eventLog = new ArrayList<JourneyEnd>();
+
+    private final List<JourneyEvent> eventLog = new ArrayList<JourneyEvent>();
     private final Set<UUID> currentlyTravelling = new HashSet<UUID>();
 
     public void chargeAccounts() {
@@ -36,8 +37,8 @@ public class TravelTracker implements ScanListener {
         //get all journeys of a customer
 
         //in eventlog, cardID == customer.cardID add into list
-        List<JourneyEnd> customerJourneyEvents = new ArrayList<>();
-        for (JourneyEnd journeyEvent : eventLog) {
+        List<JourneyEvent> customerJourneyEvents = new ArrayList<>();
+        for (JourneyEvent journeyEvent : eventLog) {
             if (journeyEvent.cardId().equals(customer.cardId())) {
                 customerJourneyEvents.add(journeyEvent);
             }
@@ -45,9 +46,9 @@ public class TravelTracker implements ScanListener {
 
         List<Journey> journeys = new ArrayList<Journey>();
 
-        JourneyEnd start = null;
+        JourneyEvent start = null;
         // make a list of Journeys
-        for (JourneyEnd event : customerJourneyEvents) {
+        for (JourneyEvent event : customerJourneyEvents) {
             if (event instanceof JourneyStart) {
                 start = event;
             }
@@ -133,6 +134,7 @@ public class TravelTracker implements ScanListener {
 
     @Override
     public void cardScanned(UUID cardId, UUID readerId) {
+        //currentlyTravelling is a set
         //currentlyTravelling is a set
         // test whether cardId is in the set
         // yes: add a JourneyEnd into eventLog, and remove from the currentlyTravelling
