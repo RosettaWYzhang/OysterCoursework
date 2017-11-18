@@ -1,10 +1,19 @@
 package test.tfl.billing;
 
+
+
+
+import com.tfl.billing.*;
+
 import org.junit.Test;
 
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.*;
 
 
 
@@ -61,6 +70,23 @@ public class MainTest {
 //            assertThat(list.size().is(0));
 //        }
 
+  /*  private JourneyStart start;
+    private JourneyEnd end;
+
+    final Journey journey = new Journey(start, end);
+
+    final TravelTracker travelTracker = new TravelTracker();
+    List<Journey> journeys = new ArrayList<Journey>();
+
+
+*/
+
+
+        /*
+           A customer touch the sensor
+
+         */
+
         @Test
         public void checkCardScanned(){
 
@@ -71,11 +97,20 @@ public class MainTest {
 
         }
 
-        @Test
-        public void checkPeaktimeCorrectOrNotcorrect(){
-
+      /*  @Test
+        public void checkPeaktimeCostOld(){
+            journeys.add(journey);
+            BigDecimal price = new BigDecimal(2.40);
+            assertTrue(travelTracker.journeysListCostOldVersion(journeys) == price);
         }
 
+        @Test
+        public void checkPeaktimeCostNew(){
+            journeys.add(journey);
+            BigDecimal price = new BigDecimal(2.90);
+            assertTrue(travelTracker.journeysListCostNewVersion(journeys) == price);
+        }
+        */
         @Test
         public void checkCorrectCalculateCap(){
 

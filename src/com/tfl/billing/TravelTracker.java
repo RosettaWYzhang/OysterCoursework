@@ -7,17 +7,24 @@ import com.tfl.external.PaymentsSystem;
 
 import java.math.BigDecimal;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class TravelTracker implements ScanListener {
 
     static final BigDecimal OFF_PEAK_JOURNEY_PRICE = new BigDecimal(2.40);
     static final BigDecimal PEAK_JOURNEY_PRICE = new BigDecimal(3.20);
 
-    private final List<JourneyEvent> eventLog = new ArrayList<JourneyEvent>();
+    static final BigDecimal OFF_PEAK_LONG_JOURNEY_PRICE = new BigDecimal(2.70);
+    static final BigDecimal OFF_PEAK_SHORT_JOURNEY_PRICE = new BigDecimal(1.60);
+    static final BigDecimal PEAK_LONG_JOURNEY_PRICE = new BigDecimal(3.80);
+    static final BigDecimal PEAK_SHORT_JOURNEY_PRICE = new BigDecimal(2.90);
+
+    private final List<JourneyEnd> eventLog = new ArrayList<JourneyEnd>();
     private final Set<UUID> currentlyTravelling = new HashSet<UUID>();
 
     public void chargeAccounts() {
-        CustomerDatabase customerDatabase = CustomerDatabase.getInstance();
+        //get total cost of all customer
+        CustomerDatabase customerDatabase = CustomerDatabase.getInstance(); //singleton
 
         List<Customer> customers = customerDatabase.getCustomers();
         for (Customer customer : customers) {
@@ -26,8 +33,11 @@ public class TravelTracker implements ScanListener {
     }
 
     private void totalJourneysFor(Customer customer) {
-        List<JourneyEvent> customerJourneyEvents = new ArrayList<JourneyEvent>();
-        for (JourneyEvent journeyEvent : eventLog) {
+        //get all journeys of a customer
+
+        //in eventlog, cardID == customer.cardID add into list
+        List<JourneyEnd> customerJourneyEvents = new ArrayList<>();
+        for (JourneyEnd journeyEvent : eventLog) {
             if (journeyEvent.cardId().equals(customer.cardId())) {
                 customerJourneyEvents.add(journeyEvent);
             }
@@ -35,8 +45,9 @@ public class TravelTracker implements ScanListener {
 
         List<Journey> journeys = new ArrayList<Journey>();
 
-        JourneyEvent start = null;
-        for (JourneyEvent event : customerJourneyEvents) {
+        JourneyEnd start = null;
+        // make a list of Journeys
+        for (JourneyEnd event : customerJourneyEvents) {
             if (event instanceof JourneyStart) {
                 start = event;
             }
@@ -45,7 +56,7 @@ public class TravelTracker implements ScanListener {
                 start = null;
             }
         }
-
+        //calculate customer's total cost
         BigDecimal customerTotal = new BigDecimal(0);
         for (Journey journey : journeys) {
             BigDecimal journeyPrice = OFF_PEAK_JOURNEY_PRICE;
@@ -55,14 +66,55 @@ public class TravelTracker implements ScanListener {
             customerTotal = customerTotal.add(journeyPrice);
         }
 
-        PaymentsSystem.getInstance().charge(customer, journeys, roundToNearestPenny(customerTotal));
+        PaymentsSystem.getInstance().charge(customer, journeys, roundToNearestPenny(customerTotal));//singleton
+    }
+
+    public BigDecimal journeysListCostOldVersion(List<Journey> journeys){
+        //calculate cost of a list of Journeys
+        BigDecimal customerTotal = new BigDecimal(0);
+        for (Journey journey : journeys) {
+            BigDecimal journeyPrice = OFF_PEAK_JOURNEY_PRICE;
+            if (peak(journey)) {
+                journeyPrice = PEAK_JOURNEY_PRICE;
+            }
+            customerTotal = customerTotal.add(journeyPrice);
+        }
+        return roundToNearestPenny(customerTotal);
+    }
+    public long getDateDiff(Date start, Date end, TimeUnit timeUnit) {
+        long diffInMillies = end.getTime() - start.getTime();
+        return timeUnit.convert(diffInMillies,TimeUnit.MILLISECONDS);
+    }
+
+    public BigDecimal journeysListCostNewVersion(List<Journey> journeys){
+        BigDecimal customerTotal = new BigDecimal(0);
+        for(Journey journey : journeys){
+            long timeInterval = getDateDiff(journey.endTime(), journey.startTime(),TimeUnit.MINUTES);
+            if(peak(journey)){
+                if(timeInterval <= 25){
+                    customerTotal = customerTotal.add(PEAK_SHORT_JOURNEY_PRICE);
+                }else{
+                    customerTotal = customerTotal.add(PEAK_LONG_JOURNEY_PRICE);
+                }
+            }else{
+                if(timeInterval <= 25){
+                    customerTotal = customerTotal.add(OFF_PEAK_SHORT_JOURNEY_PRICE);
+                }else{
+                    customerTotal = customerTotal.add(OFF_PEAK_LONG_JOURNEY_PRICE);
+                }
+            }
+        }
+        return customerTotal;
     }
 
     private BigDecimal roundToNearestPenny(BigDecimal poundsAndPence) {
+
+        //ex. 1.745 -> 1.75
         return poundsAndPence.setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
     private boolean peak(Journey journey) {
+        //check peak
         return peak(journey.startTime()) || peak(journey.endTime());
     }
 
@@ -81,6 +133,11 @@ public class TravelTracker implements ScanListener {
 
     @Override
     public void cardScanned(UUID cardId, UUID readerId) {
+        //currentlyTravelling is a set
+        // test whether cardId is in the set
+        // yes: add a JourneyEnd into eventLog, and remove from the currentlyTravelling
+        // No:add cardId into currentlyTravelling, eventLog add a JourneyStart
+
         if (currentlyTravelling.contains(cardId)) {
             eventLog.add(new JourneyEnd(cardId, readerId));
             currentlyTravelling.remove(cardId);
