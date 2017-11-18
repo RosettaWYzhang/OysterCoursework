@@ -28,49 +28,8 @@ public class MainTest {
 //	-cardScanned(cardId, readerID): void
 
 
-        //mock function
-//	@Rule
-//	  public JUnitRuleMockery context = new JUnitRuleMockery();
-//
-//	  MemoryCard memoryCard = context.mock(MemoryCard.class);
-//	  Sensor sensor = context.mock(Sensor.class);
-//	//  WriteListener writeListener = context.mock(WriteListener.class);
-//	  Camera camera = new Camera(sensor, memoryCard);
-//
-//
-//
-//
-//	  @Test
-        //mock example
-//	  public void switchingTheCameraOnPowersUpTheSensor() {
-//
-//	    // write your test here
-//		  context.checking(new Expectations(){{
-//			  exactly(1).of(sensor).powerUp();
-//
-//		  }
-//		});
-//	 camera.powerOn();
-//	  }
 
-
-        //steps:
-        //mock A person who scan the oyster card  , return exactly(1).
-        //
-        //
-        //mock A person who start from time a  to time b
-        //calcualte the total fee whether correct or not
-
-//
-//        //example test to check database is empty
-//        @Test
-//        public void isInitialisedEmpty(){
-//            UserID list = new UserID();
-//            assertTrue(list.isEmpty());
-//            assertThat(list.size().is(0));
-//        }
-
-  /*  private JourneyStart start;
+    private JourneyStart start;
     private JourneyEnd end;
 
     final Journey journey = new Journey(start, end);
@@ -79,13 +38,12 @@ public class MainTest {
     List<Journey> journeys = new ArrayList<Journey>();
 
 
-*/
 
 
-        /*
-           A customer touch the sensor
 
-         */
+        // A customer touch the sensor
+
+
 
         @Test
         public void checkCardScanned(){
@@ -97,7 +55,7 @@ public class MainTest {
 
         }
 
-        /*  @Test
+          @Test
           public void checkPeaktimeCostOld(){
               journeys.add(journey);
               BigDecimal price = new BigDecimal(2.40);
@@ -110,11 +68,15 @@ public class MainTest {
               BigDecimal price = new BigDecimal(2.90);
               assertTrue(travelTracker.journeysListCostNewVersion(journeys) == price);
           }
-          */
-        @Test
-        public void checkCorrectCalculateCap(){
 
-        }
+//
+//
+//        @Test
+//        public void checkCorrectCalculateCap(){
+//                  journeys.add(journey);
+//
+//
+//        }
 
         @Test
         public void allJourneyIsRecord(){
@@ -125,20 +87,6 @@ public class MainTest {
         public void checkTopUpSuccess(){
 
         }
-
-//    public void cardScanned(UUID cardId, UUID readerId) {
-//        if (currentlyTravelling.contains(cardId)) {
-//            eventLog.add(new JourneyEnd(cardId, readerId));
-//            currentlyTravelling.remove(cardId);
-//        } else {
-//            if (CustomerDatabase.getInstance().isRegisteredId(cardId)) {
-//                currentlyTravelling.add(cardId);
-//                eventLog.add(new JourneyStart(cardId, readerId));
-//            } else {
-//                throw new UnknownOysterCardException(cardId);
-//            }
-//        }
-//    }
 
 
 

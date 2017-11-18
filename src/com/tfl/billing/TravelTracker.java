@@ -13,11 +13,13 @@ public class TravelTracker implements ScanListener {
 
     static final BigDecimal OFF_PEAK_JOURNEY_PRICE = new BigDecimal(2.40);
     static final BigDecimal PEAK_JOURNEY_PRICE = new BigDecimal(3.20);
-
     static final BigDecimal OFF_PEAK_LONG_JOURNEY_PRICE = new BigDecimal(2.70);
     static final BigDecimal OFF_PEAK_SHORT_JOURNEY_PRICE = new BigDecimal(1.60);
     static final BigDecimal PEAK_LONG_JOURNEY_PRICE = new BigDecimal(3.80);
     static final BigDecimal PEAK_SHORT_JOURNEY_PRICE = new BigDecimal(2.90);
+    static final BigDecimal PEAK_CAP = new BigDecimal(9.00);
+    static final BigDecimal OFF_PEAK_CAP = new BigDecimal(7.00);
+
 
 
     private final List<JourneyEvent> eventLog = new ArrayList<JourneyEvent>();
@@ -67,7 +69,66 @@ public class TravelTracker implements ScanListener {
             customerTotal = customerTotal.add(journeyPrice);
         }
 
-        PaymentsSystem.getInstance().charge(customer, journeys, roundToNearestPenny(customerTotal));//singleton
+
+        PaymentsSystem.getInstance().charge(customer, journeys, roundToNearestPenny(customerTotal));
+    }
+
+    private void NewVersionTotalJourneysFor(Customer customer) {
+        //get all journeys of a customer
+
+        //in eventlog, cardID == customer.cardID add into list
+        List<JourneyEvent> customerJourneyEvents = new ArrayList<>();
+        for (JourneyEvent journeyEvent : eventLog) {
+            if (journeyEvent.cardId().equals(customer.cardId())) {
+                customerJourneyEvents.add(journeyEvent);
+            }
+        }
+
+        List<Journey> journeys = new ArrayList<Journey>();
+
+        JourneyEvent start = null;
+        // make a list of Journeys
+        for (JourneyEvent event : customerJourneyEvents) {
+            if (event instanceof JourneyStart) {
+                start = event;
+            }
+            if (event instanceof JourneyEnd && start != null) {
+                journeys.add(new Journey(start, event));
+                start = null;
+            }
+        }
+        //calculate customer's total cost
+        int flag = 0;
+        BigDecimal customerTotal = new BigDecimal(0);
+        for (Journey journey : journeys) {
+            BigDecimal journeyPrice = OFF_PEAK_JOURNEY_PRICE;
+            if (peak(journey)) {
+                journeyPrice = PEAK_JOURNEY_PRICE;
+                flag = 1;
+            }
+            customerTotal = customerTotal.add(journeyPrice);
+
+        }
+
+        BigDecimal customerTotalCost = roundToNearestPenny(customerTotal);
+        if(customerTotal.compareTo(PEAK_CAP) == 1){
+            if(flag == 1){
+                customerTotalCost=PEAK_CAP;
+            }
+                else {
+                  if (customerTotal.compareTo(OFF_PEAK_CAP) == 1) {
+                       customerTotalCost=OFF_PEAK_CAP;
+                  }
+                  else{
+                      customerTotalCost=roundToNearestPenny(customerTotal);
+                  }
+
+
+            }
+        }
+
+
+        PaymentsSystem.getInstance().charge(customer, journeys, customerTotalCost );
     }
 
     public BigDecimal journeysListCostOldVersion(List<Journey> journeys){
