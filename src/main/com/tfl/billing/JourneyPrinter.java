@@ -12,7 +12,7 @@ public class JourneyPrinter {
         CustomerDatabase customerDatabase = CustomerDatabase.getInstance();
         List<Customer> customers = customerDatabase.getCustomers();
         for (Customer customer : customers) {
-            calculator.totalJourneysFor(customer);
+            calculator.totalCostFor(customer);
         }
     }
 

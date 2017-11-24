@@ -17,4 +17,6 @@ public class TimeChecker {
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         return (hour >= 6 && hour <= 9) || (hour >= 17 && hour <= 19);
     }
+
+
 }
