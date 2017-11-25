@@ -7,7 +7,6 @@ import java.util.UUID;
 public class CardScannerTest {
 
     TravelTracker tracker = new TravelTracker();
-
     @Test(expected = UnknownOysterCardException.class)
     public void testUnknownOyster(){
         UUID fakeCardId = UUID.fromString("38411111-8cf0-11bd-b23e-10b96e4ef00d");
@@ -20,6 +19,5 @@ public class CardScannerTest {
         UUID cardId = UUID.fromString("38400000-8cf0-11bd-b23e-10b96e4ef00d"); // Fred Blog
         assertTrue(CustomerDatabase.getInstance().isRegisteredId(cardId));
     }
-
 
 }

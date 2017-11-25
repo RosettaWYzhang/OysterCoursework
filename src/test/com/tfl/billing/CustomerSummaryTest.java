@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.util.List;
 import java.util.UUID;
 
+import static com.tfl.billing.CostCalculator.journeys;
 import static org.junit.Assert.*;
 
 public class CustomerSummaryTest {
@@ -23,8 +24,8 @@ public class CustomerSummaryTest {
         eventLogger.add(end);
         Customer customer = CustomerDatabase.getInstance().getCustomers().get(0);
         CustomerSummary customerSummary = new CustomerSummary(customer);
-        List<Journey> journeys = customerSummary.getCustomerJourney();
-        System.out.print(journeys.size());
+        customerSummary.summariseJourney();
+        //not sure if it's a good decision to make journeys in costcalculator package private...
         assertTrue(journeys.size() == 1);
     }
 

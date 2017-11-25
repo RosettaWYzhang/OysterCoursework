@@ -37,7 +37,4 @@ public class TravelTracker implements ScanListener {
 
 
 
-
-
-
 }

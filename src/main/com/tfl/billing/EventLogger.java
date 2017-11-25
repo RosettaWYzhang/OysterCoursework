@@ -7,6 +7,7 @@ public class EventLogger {
     private static EventLogger instance = new EventLogger();
     private final List<JourneyEvent> eventLog = new ArrayList<JourneyEvent>();
 
+    //singleton pattern
     private EventLogger(){}
 
     public static EventLogger getInstance(){

@@ -7,12 +7,13 @@ import java.util.List;
 
 public class JourneyPrinter {
 
-    CostCalculator calculator = new CostCalculator();
+
     public void chargeAccounts() {
         CustomerDatabase customerDatabase = CustomerDatabase.getInstance();
         List<Customer> customers = customerDatabase.getCustomers();
         for (Customer customer : customers) {
-            calculator.totalCostFor(customer);
+            CustomerSummary summary = new CustomerSummary(customer);
+            summary.printCustomerSummary();
         }
     }
 

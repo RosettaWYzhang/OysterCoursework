@@ -1,10 +1,7 @@
 package com.tfl.billing;
 
-
 import com.tfl.external.Customer;
-import com.tfl.external.PaymentsSystem;
-import sun.jvm.hotspot.gc_implementation.parallelScavenge.PSYoungGen;
-
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -14,18 +11,31 @@ public class CustomerSummary {
     private final Customer customer;
     private List<JourneyEvent> eventLog = new ArrayList<JourneyEvent>();
     private final List<JourneyEvent> customerJourneyEvents = new ArrayList<JourneyEvent>();
-    private final List<Journey> journeys = new ArrayList<Journey>();
+    public final List<Journey> journeys = new ArrayList<Journey>();
+    private BigDecimal totalBill = new BigDecimal("0");
 
     public CustomerSummary(Customer customer){
         this.customer = customer;
     }
 
-    public void getEventLog(){
+    public void summariseJourney(){
+        getEventLog();
+        filterJourneyEvent();
+        convertEventLogToJourneys();
+        getCustomerJourneyPrice();
+    }
+
+    private void getCustomerJourneyPrice(){
+        CostCalculator calculator = new CostCalculator(journeys);
+        totalBill = calculator.calculateSum();
+    }
+
+    private void getEventLog(){
         eventLog = EventLogger.getInstance().getEventLog();
 
     }
 
-    public void filterJourneyEvent(){
+    private void filterJourneyEvent(){
         for (JourneyEvent journeyEvent : eventLog) {
             if (journeyEvent.cardId().equals(customer.cardId())) {
                 customerJourneyEvents.add(journeyEvent);
@@ -33,7 +43,7 @@ public class CustomerSummary {
         }
     }
 
-    public void convertEventLogToJourneys(){
+    private void convertEventLogToJourneys(){
         JourneyEvent start = null;
         for (JourneyEvent event : customerJourneyEvents) {
             if (event instanceof JourneyStart) {
@@ -46,12 +56,10 @@ public class CustomerSummary {
         }
     }
 
-    public List<Journey> getCustomerJourney(){
-        getEventLog();
-        filterJourneyEvent();
-        convertEventLogToJourneys();
-        return journeys;
+    public BigDecimal getJourneyPrice(){
+        return totalBill;
     }
+
 
     public void printCustomerSummary(){
         System.out.println("\n\n*****************\n\n");
@@ -62,6 +70,7 @@ public class CustomerSummary {
             Journey journey = (Journey)i$.next();
             System.out.println(journey.formattedStartTime() + "\t" + journey.originId() + "\t" + " -- " + journey.formattedEndTime() + "\t" + journey.destinationId());
         }
+        System.out.println("Total charge £: " + totalBill);
     }
 
 
