@@ -24,6 +24,10 @@ public class CostCalculator {
         journeys.add(journey);
     }
 
+    public CostCalculator(){
+
+    }
+
     //needed by customer summary, but should this return void?
     public BigDecimal calculateSum(){
         BigDecimal totalPrice = new BigDecimal(0);
@@ -43,12 +47,38 @@ public class CostCalculator {
 
     }
 
-    //should this method accept time as argument?
+    //should delete the method
+    //pass time directly to the argument to minimise dependency
     public BigDecimal determinePrice(Journey journey){
         TimeChecker timeChecker = new TimeChecker(); // is timechecker necessary? consider a utility function?
-        JourneyDurationChecker durationChecker = new JourneyDurationChecker();
+        DurationChecker durationChecker = new DurationChecker();
         boolean isPeak = timeChecker.peak(journey);
         boolean isLong = durationChecker.isLong(journey);
+
+        BigDecimal journeyPrice = OFF_PEAK_SHORT_PRICE;
+        if (isPeak && isLong) {
+            journeyPrice = PEAK_LONG_PRICE;
+            peakFlag = true;
+        }
+        else if(isPeak && !isLong){
+            journeyPrice = PEAK_SHORT_PRICE;
+            peakFlag = true;
+        }
+        else if(!isPeak && isLong){
+            journeyPrice = OFF_PEAK_LONG_PRICE;
+        }
+        else{
+            journeyPrice = OFF_PEAK_SHORT_PRICE;
+        }
+        return journeyPrice;
+    }
+
+    //should this method accept time as argument?
+    public BigDecimal determinePrice(Clock clockStart, Clock clockEnd){
+        TimeChecker timeChecker = new TimeChecker(); // is timechecker necessary? consider a utility function?
+        DurationChecker durationChecker = new DurationChecker();
+        boolean isPeak = timeChecker.peak(clockStart) || timeChecker.peak(clockEnd) ;
+        boolean isLong = durationChecker.isLong(clockStart, clockEnd);
 
         BigDecimal journeyPrice = OFF_PEAK_SHORT_PRICE;
         if (isPeak && isLong) {

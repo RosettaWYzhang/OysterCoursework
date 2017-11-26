@@ -19,15 +19,16 @@ public class TravelTracker implements ScanListener {
     @Override
     public void cardScanned(UUID cardId, UUID readerId) {
         EventLogger eventLog = EventLogger.getInstance();
+        SystemClock clock = new SystemClock();
 
         if (currentlyTravelling.contains(cardId)) {
-            eventLog.add(new JourneyEnd(cardId, readerId));
+            eventLog.add(new JourneyEnd(cardId, readerId, clock));
             currentlyTravelling.remove(cardId);
         } else {
             //checked
             if (CustomerDatabase.getInstance().isRegisteredId(cardId)) {
                 currentlyTravelling.add(cardId);
-                eventLog.add(new JourneyStart(cardId, readerId));
+                eventLog.add(new JourneyStart(cardId, readerId, clock));
             } else {
                 //checked
                 throw new UnknownOysterCardException(cardId);

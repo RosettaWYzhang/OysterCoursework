@@ -14,18 +14,25 @@ public class CustomerSummaryTest {
 
     @Test
     public void checkJourneyListNotEmpty(){
+        Customer customer = CustomerDatabase.getInstance().getCustomers().get(0);
+        UUID cardID = customer.cardId();
         EventLogger eventLogger = EventLogger.getInstance();
-        UUID cardId = UUID.fromString("38400000-8cf0-11bd-b23e-10b96e4ef00d");
+        SystemClock clock = new SystemClock();
+
         UUID startReaderId = UUID.randomUUID();
         UUID endReaderId = UUID.randomUUID();
-        JourneyEvent start = new JourneyStart(cardId, startReaderId);
-        JourneyEvent end = new JourneyEnd(cardId, endReaderId);
+        JourneyEvent start = new JourneyStart(cardID, startReaderId, clock);
+        JourneyEvent end = new JourneyEnd(cardID, endReaderId, clock);
         eventLogger.add(start);
         eventLogger.add(end);
-        Customer customer = CustomerDatabase.getInstance().getCustomers().get(0);
+
+        System.out.println(customer.fullName()+" "+ customer.cardId());
         CustomerSummary customerSummary = new CustomerSummary(customer);
         customerSummary.summariseJourney();
+
         //not sure if it's a good decision to make journeys in costcalculator package private...
+        //or should it return the arrayList of journeys?
+        System.out.println(journeys.size());
         assertTrue(journeys.size() == 1);
     }
 

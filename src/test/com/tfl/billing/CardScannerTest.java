@@ -16,8 +16,9 @@ public class CardScannerTest {
 
     @Test
     public void testKnownOysterEvokesTouchMethod(){
-        UUID cardId = UUID.fromString("38400000-8cf0-11bd-b23e-10b96e4ef00d"); // Fred Blog
-        assertTrue(CustomerDatabase.getInstance().isRegisteredId(cardId));
+        CustomerDatabase customerDatabase = CustomerDatabase.getInstance();
+        UUID cardID = customerDatabase.getCustomers().get(0).cardId();
+        assertTrue(CustomerDatabase.getInstance().isRegisteredId(cardID));
     }
 
 }
