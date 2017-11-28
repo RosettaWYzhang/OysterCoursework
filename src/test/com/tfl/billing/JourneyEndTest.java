@@ -24,6 +24,4 @@ public class JourneyEndTest {
         assertThat(newEvent.readerId(),is(readerId_test));
     }
 
-
-
 }
