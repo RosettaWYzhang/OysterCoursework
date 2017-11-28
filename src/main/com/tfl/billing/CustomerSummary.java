@@ -56,9 +56,9 @@ public class CustomerSummary {
         }
     }
 
-    public BigDecimal getJourneyPrice(){
-        return totalBill;
-    }
+//    public BigDecimal getJourneyPrice(){
+//        return totalBill;
+//    }
 
 
     public void printCustomerSummary(){
