@@ -6,6 +6,9 @@ import com.tfl.external.CustomerDatabase;
 import java.util.*;
 
 public class TravelTracker implements ScanListener {
+    public Set<UUID> getCurrentlyTravelling() {
+        return currentlyTravelling;
+    }
 
     private final Set<UUID> currentlyTravelling = new HashSet<UUID>();
 
