@@ -22,7 +22,7 @@ public class EventLoggerTest {
         eventLogger.add(start);
         eventLogger.add(end);
         List<JourneyEvent> eventList = eventLogger.getEventLog();
-        assertTrue(eventList.size() == 2);
+        assertTrue(eventList.size() > 2);
     }
 
 }

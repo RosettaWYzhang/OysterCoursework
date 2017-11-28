@@ -39,20 +39,17 @@ public class CustomerSummaryTest {
     private final ByteArrayOutputStream JourneyContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream DateContent = new ByteArrayOutputStream();
     Journey journey = new Journey(start, end);
+
+
     @Test
     public void checkJourneyListNotEmpty(){
 
-
-
         eventLogger.add(start);
         eventLogger.add(end);
-
         System.out.println(customer.fullName()+" "+ customer.cardId());
 
         customerSummary.summariseJourney();
 
-        //not sure if it's a good decision to make journeys in costcalculator package private...
-        //or should it return the arrayList of journeys?
         System.out.println(journeys.size());
         assertTrue(journeys.size() == 1);
     }
@@ -73,19 +70,8 @@ public class CustomerSummaryTest {
     }
 
 
-    @Test
-    public void testCustomerInfoPrint() {
-        System.out.print("Customer: " + customer.fullName() + " - " + customer.cardId());
-        assertEquals("Customer: " + customer.fullName() + " - " + customer.cardId(), CustomerContent.toString());
-    }
 
-    @Test
-    public void testJourneyPrint() {
 
-        System.out.print(journey.formattedStartTime() + "\t" + journey.originId() + "\t" + " -- " + journey.formattedEndTime() + "\t" + journey.destinationId());
-        assertEquals(journey.formattedStartTime() + "\t" + journey.originId() + "\t" + " -- " + journey.formattedEndTime() + "\t" + journey.destinationId(), JourneyContent.toString());
-
-    }
     @Test
     public void testStartDate(){
         Date startDate = journey.startTime();
