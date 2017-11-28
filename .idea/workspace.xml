@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f16c8be6-4d49-4ceb-a85a-a61787ec05dc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/com/tfl/billing/todolist.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/com/tfl/billing/JourneyEndTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/com/tfl/billing/JourneyEventTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/com/tfl/billing/JourneyStartTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/com/tfl/billing/CustomerSummary.java" afterPath="$PROJECT_DIR$/src/main/com/tfl/billing/CustomerSummary.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/com/tfl/billing/EntryPoint.java" afterPath="$PROJECT_DIR$/src/main/com/tfl/billing/EntryPoint.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/com/tfl/billing/TravelTracker.java" afterPath="$PROJECT_DIR$/src/main/com/tfl/billing/TravelTracker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/com/tfl/billing/CardScannerTest.java" afterPath="$PROJECT_DIR$/src/test/com/tfl/billing/CardScannerTest.java" />
-    </list>
+    <list default="true" id="f16c8be6-4d49-4ceb-a85a-a61787ec05dc" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
