@@ -50,4 +50,5 @@ public class TimeCheckerTest {
         assertTrue(timeChecker.peak(new Date(currentTime)) || !timeChecker.peak(new Date(currentTime)));
     }
 
+
 }

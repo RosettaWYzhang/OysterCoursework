@@ -24,9 +24,9 @@ public class EntryPoint {
 // Bigdecimal round up //impt
 // connect //impt
 
-// card scanner not complete
+// card scanner not complete [done]
 // check date format, see if we want to use other time format?
-// test journey start, journey end individually
+// test journey start, journey end individually [done]
 // add more journey events for testing
 // TODO: could check
 // external jar: oyster card format, scan listener, touch, read id, customer format, check get instance,

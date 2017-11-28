@@ -9,17 +9,18 @@ import java.util.List;
 public class CustomerSummary {
 
     private final Customer customer;
-    private List<JourneyEvent> eventLog = new ArrayList<JourneyEvent>();
+    private List<JourneyEvent> eventLog;
     private final List<JourneyEvent> customerJourneyEvents = new ArrayList<JourneyEvent>();
     public final List<Journey> journeys = new ArrayList<Journey>();
     private BigDecimal totalBill = new BigDecimal("0");
 
     public CustomerSummary(Customer customer){
+
         this.customer = customer;
+        this.eventLog = EventLogger.getInstance().getEventLog();
     }
 
     public void summariseJourney(){
-        getEventLog();
         filterJourneyEvent();
         convertEventLogToJourneys();
         getCustomerJourneyPrice();
@@ -30,10 +31,7 @@ public class CustomerSummary {
         totalBill = calculator.calculateSum();
     }
 
-    private void getEventLog(){
-        eventLog = EventLogger.getInstance().getEventLog();
 
-    }
 
     private void filterJourneyEvent(){
         for (JourneyEvent journeyEvent : eventLog) {
@@ -59,6 +57,7 @@ public class CustomerSummary {
     public BigDecimal getJourneyPrice(){
         return totalBill;
     }
+
 
 
     public void printCustomerSummary(){

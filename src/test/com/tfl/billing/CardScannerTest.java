@@ -21,4 +21,6 @@ public class CardScannerTest {
         assertTrue(CustomerDatabase.getInstance().isRegisteredId(cardID));
     }
 
+
+
 }
