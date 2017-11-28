@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 public class JourneyStartTest {
     private final UUID cardId_test = UUID.randomUUID();
     private final UUID readerId_test = UUID.randomUUID();
-    private Clock clock;
+    Clock clock = new SystemClock();
     private JourneyEvent newEvent = new JourneyStart(cardId_test, readerId_test,clock);
 
 
