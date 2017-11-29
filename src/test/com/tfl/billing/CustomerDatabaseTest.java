@@ -28,10 +28,16 @@ public class CustomerDatabaseTest {
 
     @Test
     public void testCustomerDatabaseIsRegisteredID(){
-        UUID fakeCardId = UUID.fromString("38411111-8cf0-11bd-b23e-10b96e4ef00d");
-        UUID trueCardId = UUID.fromString("3b5a03cb-2be6-4ed3-b83e-94858b43e407");
-        assertFalse(customerDatabase.isRegisteredId(fakeCardId));
+
+        UUID trueCardId = customers.get(0).cardId();;
         assertTrue(customerDatabase.isRegisteredId(trueCardId));
+    }
+
+    @Test
+    public void testCustomerDatabaseNotRegisterID(){
+        UUID fakeCardId = UUID.fromString("38411111-8cf0-11bd-b23e-10b96e4ef00d");
+        assertFalse(customerDatabase.isRegisteredId(fakeCardId));
+
     }
 
 }
