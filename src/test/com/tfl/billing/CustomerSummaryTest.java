@@ -34,9 +34,7 @@ public class CustomerSummaryTest {
 
     CustomerSummary customerSummary = new CustomerSummary(customer);
 
-    private final ByteArrayOutputStream CustomerContent = new ByteArrayOutputStream();
-    private final ByteArrayOutputStream JourneyContent = new ByteArrayOutputStream();
-    private final ByteArrayOutputStream DateContent = new ByteArrayOutputStream();
+    private final ByteArrayOutputStream Content =new ByteArrayOutputStream();
     Journey journey = new Journey(start, end);
 
 
@@ -55,9 +53,7 @@ public class CustomerSummaryTest {
 
     @Before
     public void setUpStreams() {
-        System.setOut(new PrintStream(CustomerContent));
-        System.setOut(new PrintStream(JourneyContent));
-        System.setOut(new PrintStream(DateContent));
+        System.setOut(new PrintStream(Content));
     }
 
 
@@ -66,19 +62,18 @@ public class CustomerSummaryTest {
         System.setOut(null);
     }
 
-//    @Test
-//    public void testCustomerInfoPrint() {
-//        System.out.print("Customer: " + customer.fullName() + " - " + customer.cardId());
-//        assertEquals("Customer: " + customer.fullName() + " - " + customer.cardId(), CustomerContent.toString());
-//    }
-//
-//    @Test
-//    public void testJourneyPrint() {
-//
-//        System.out.print(journey.formattedStartTime() + "\t" + journey.originId() + "\t" + " -- " + journey.formattedEndTime() + "\t" + journey.destinationId());
-//        assertEquals(journey.formattedStartTime() + "\t" + journey.originId() + "\t" + " -- " + journey.formattedEndTime() + "\t" + journey.destinationId(), JourneyContent.toString());
-//
-//    }
+    @Test
+    public void testCustomerInfoPrint() {
+        System.out.print("Customer: " + customer.fullName() + " - " + customer.cardId());
+        assertEquals("Customer: " + customer.fullName() + " - " + customer.cardId(), Content.toString());
+    }
+
+    @Test
+    public void testJourneyPrint() {
+        System.out.print(journey.formattedStartTime() + "\t" + journey.originId() + "\t" + " -- " + journey.formattedEndTime() + "\t" + journey.destinationId());
+        assertEquals(journey.formattedStartTime() + "\t" + journey.originId() + "\t" + " -- " + journey.formattedEndTime() + "\t" + journey.destinationId(), Content.toString());
+
+    }
 
 
 
@@ -103,7 +98,7 @@ public class CustomerSummaryTest {
         String format = journey.formattedStartTime();
         String currentTime = SimpleDateFormat.getInstance().format(new Date());
         System.out.print(format);
-        assertEquals(currentTime, DateContent.toString());
+        assertEquals(currentTime, Content.toString());
     }
 
     /*

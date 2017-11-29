@@ -24,13 +24,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomerSummaryTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CustomerSummaryTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/com/tfl/billing/CustomerSummaryTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-101">
-              <caret line="51" column="5" lean-forward="true" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+            <state relative-caret-position="131">
+              <caret line="12" column="34" lean-forward="true" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1397#1398#0" expanded="true" />
+                <element signature="e#1452#1453#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -68,7 +69,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JourneyStartTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="JourneyStartTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/com/tfl/billing/JourneyStartTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
@@ -167,8 +168,8 @@
         <option value="$PROJECT_DIR$/src/main/com/tfl/billing/JourneyEventInterface.java" />
         <option value="$PROJECT_DIR$/src/test/com/tfl/billing/CardScannerTest.java" />
         <option value="$PROJECT_DIR$/src/test/com/tfl/billing/EventLoggerTest.java" />
-        <option value="$PROJECT_DIR$/src/test/com/tfl/billing/CustomerSummaryTest.java" />
         <option value="$PROJECT_DIR$/src/test/com/tfl/billing/CustomerDatabaseTest.java" />
+        <option value="$PROJECT_DIR$/src/test/com/tfl/billing/CustomerSummaryTest.java" />
       </list>
     </option>
   </component>
@@ -397,7 +398,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="EventLoggerTest.testEventsGetAdded" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CustomerSummaryTest.testJourneyPrint" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.tfl.billing.*" />
@@ -408,8 +409,33 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.tfl.billing" />
-      <option name="MAIN_CLASS_NAME" value="com.tfl.billing.EventLoggerTest" />
-      <option name="METHOD_NAME" value="testEventsGetAdded" />
+      <option name="MAIN_CLASS_NAME" value="com.tfl.billing.CustomerSummaryTest" />
+      <option name="METHOD_NAME" value="testJourneyPrint" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="CustomerSummaryTest.testformattedStartTime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.tfl.billing.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="helloworld" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.tfl.billing" />
+      <option name="MAIN_CLASS_NAME" value="com.tfl.billing.CustomerSummaryTest" />
+      <option name="METHOD_NAME" value="testformattedStartTime" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -503,45 +529,20 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration name="com.tfl.billing in helloworld" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.tfl.billing.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="helloworld" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.tfl.billing" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.All in helloworld" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.CustomerSummaryTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.com.tfl.billing in helloworld" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.CustomerSummaryTest.testCustomerInfoPrint" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.EventLoggerTest.testEventsGetAdded" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.CustomerSummaryTest.testCustomerInfoPrint" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.CustomerSummaryTest.testJourneyPrint" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.CustomerSummaryTest.testformattedStartTime" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="JUnit.All in helloworld" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.EventLoggerTest.testEventsGetAdded" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.CustomerSummaryTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.com.tfl.billing in helloworld" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.CustomerSummaryTest.testCustomerInfoPrint" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.CustomerSummaryTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.CustomerSummaryTest.testformattedStartTime" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.CustomerSummaryTest.testCustomerInfoPrint" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.CustomerSummaryTest.testJourneyPrint" />
       </list>
     </recent_temporary>
   </component>
@@ -564,35 +565,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_helloworld - 2017.11.28 at 23h 50m 14s.xml">
+    <history-entry file="All_in_helloworld - 2017.11.29 at 00h 24m 40s.xml">
       <configuration name="All in helloworld" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_helloworld - 2017.11.28 at 23h 50m 16s.xml">
-      <configuration name="All in helloworld" configurationId="JUnit" />
+    <history-entry file="CustomerSummaryTest - 2017.11.29 at 00h 21m 18s.xml">
+      <configuration name="CustomerSummaryTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_helloworld - 2017.11.28 at 23h 50m 19s.xml">
-      <configuration name="All in helloworld" configurationId="JUnit" />
+    <history-entry file="CustomerSummaryTest - 2017.11.29 at 00h 22m 11s.xml">
+      <configuration name="CustomerSummaryTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_helloworld - 2017.11.29 at 00h 07m 44s.xml">
-      <configuration name="All in helloworld" configurationId="JUnit" />
+    <history-entry file="CustomerSummaryTest - 2017.11.29 at 00h 22m 56s.xml">
+      <configuration name="CustomerSummaryTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_helloworld - 2017.11.29 at 00h 09m 24s.xml">
-      <configuration name="All in helloworld" configurationId="JUnit" />
+    <history-entry file="CustomerSummaryTest - 2017.11.29 at 00h 23m 29s.xml">
+      <configuration name="CustomerSummaryTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_helloworld - 2017.11.29 at 00h 10m 23s.xml">
-      <configuration name="All in helloworld" configurationId="JUnit" />
+    <history-entry file="CustomerSummaryTest - 2017.11.29 at 00h 23m 41s.xml">
+      <configuration name="CustomerSummaryTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_helloworld - 2017.11.29 at 00h 13m 29s.xml">
-      <configuration name="All in helloworld" configurationId="JUnit" />
+    <history-entry file="CustomerSummaryTest - 2017.11.29 at 00h 24m 36s.xml">
+      <configuration name="CustomerSummaryTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="EventLoggerTest_testEventsGetAdded - 2017.11.29 at 00h 04m 48s.xml">
-      <configuration name="EventLoggerTest.testEventsGetAdded" configurationId="JUnit" />
+    <history-entry file="CustomerSummaryTest_testCustomerInfoPrint - 2017.11.29 at 00h 21m 42s.xml">
+      <configuration name="CustomerSummaryTest.testCustomerInfoPrint" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="EventLoggerTest_testEventsGetAdded - 2017.11.29 at 00h 06m 17s.xml">
-      <configuration name="EventLoggerTest.testEventsGetAdded" configurationId="JUnit" />
+    <history-entry file="CustomerSummaryTest_testCustomerInfoPrint - 2017.11.29 at 00h 21m 45s.xml">
+      <configuration name="CustomerSummaryTest.testCustomerInfoPrint" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="EventLoggerTest_testEventsGetAdded - 2017.11.29 at 00h 07m 13s.xml">
-      <configuration name="EventLoggerTest.testEventsGetAdded" configurationId="JUnit" />
+    <history-entry file="CustomerSummaryTest_testformattedStartTime - 2017.11.29 at 00h 22m 35s.xml">
+      <configuration name="CustomerSummaryTest.testformattedStartTime" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -607,7 +608,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298272" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4168798" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5473146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32992327" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992327" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -663,7 +664,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="6" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -916,16 +917,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/com/tfl/billing/CustomerSummaryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-101">
-          <caret line="51" column="5" lean-forward="true" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/com/tfl/billing/CustomerDatabaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
@@ -939,6 +930,17 @@
         <state relative-caret-position="180">
           <caret line="17" column="9" lean-forward="false" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/com/tfl/billing/CustomerSummaryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="12" column="34" lean-forward="true" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
+          <folding>
+            <element signature="e#1397#1398#0" expanded="true" />
+            <element signature="e#1452#1453#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
