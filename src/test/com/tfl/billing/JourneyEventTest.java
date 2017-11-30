@@ -57,7 +57,9 @@ public class JourneyEventTest {
         assertEquals(testJourney.endTime(),new Date(JOURNEY_END.time()));
     }
 
-
+    //Ying's tests for duration seconds
+    //however, we've never used duration seconds in the function
+/*
     @Test
     public void durationSeconds()  {
         assertEquals(testJourney.durationSeconds(), (int) ((JOURNEY_END.time() - JOURNEY_START.time()) / 1000));
@@ -67,6 +69,7 @@ public class JourneyEventTest {
     public void durationMinutes()  {
         assertEquals(testJourney.durationMinutes(), "" + testJourney.durationSeconds() / 60 + ":" + testJourney.durationSeconds() % 60);
     }
+*/
 
 /*
     public String formattedStartTime() {

@@ -1,6 +1,6 @@
 package com.tfl.billing;
 
-import java.text.SimpleDateFormat;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.UUID;
 
@@ -23,11 +23,11 @@ public class Journey {
     }
 
     public String formattedStartTime() {
-        return format(start.time());
+        return new Formatter(start.time()).format();
     }
 
     public String formattedEndTime() {
-        return format(end.time());
+        return new Formatter(end.time()).format();
     }
 
     public Date startTime() {
@@ -38,15 +38,36 @@ public class Journey {
         return new Date(end.time());
     }
 
-    public int durationSeconds() {
-        return (int) ((end.time() - start.time()) / 1000);
+    //rationale: a journey should know its own type, so that we can eliminate some if/else in costCalculator
+    //however, I dont think it's a good design as later we need to ask the journey for its own price,
+    // break tell and dont ask principle
+    // need to be deleted
+    public JourneyType determineType(){
+        DurationChecker durationChecker = new DurationChecker();
+        TimeChecker timeChecker = new TimeChecker();
+        boolean isLong = durationChecker.isLong(this);
+        boolean isPeak = timeChecker.isPeak(this);
+        if(isLong && isPeak){
+            return JourneyType.PEAK_LONG;
+        }
+        else if(isPeak && !isLong){
+            return JourneyType.PEAK_SHORT;
+        }
+        else if(!isPeak && isLong){
+            return JourneyType.OFF_PEAK_LONG;
+        }
+        else
+            return JourneyType.OFF_PEAK_SHORT;
+
     }
 
-    public String durationMinutes() {
-        return "" + durationSeconds() / 60 + ":" + durationSeconds() % 60;
+
+    // Shoud a journey should know its own price?
+
+    private BigDecimal roundToNearestPenny(BigDecimal poundsAndPence) {
+        return poundsAndPence.setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
-    private String format(long time) {
-        return SimpleDateFormat.getInstance().format(new Date(time));
-    }
+
+
 }

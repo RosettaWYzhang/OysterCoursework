@@ -11,43 +11,43 @@ public class TimeCheckerTest {
 
     @Test
     public void testMorningPeakTime(){
-        assertTrue(timeChecker.peak(7));
+        assertTrue(timeChecker.isPeak(7));
 
     }
     @Test
     public void testAfternoonPeakTime(){
-        assertTrue(timeChecker.peak(17));
+        assertTrue(timeChecker.isPeak(17));
 
     }
 
     @Test
     public void testOffPeakTime(){
-        assertTrue(!timeChecker.peak(11));
+        assertTrue(!timeChecker.isPeak(11));
     }
     @Test
     public void testPeakJourneyWithPeakStartOffPeakEnd(){
-        assertTrue(timeChecker.peak(7) || timeChecker.peak(13));
+        assertTrue(timeChecker.isPeak(7) || timeChecker.isPeak(13));
 
     }
     @Test
     public void testPeakJourneyWithPeakStartPeakEnd(){
-        assertTrue(timeChecker.peak(7) || timeChecker.peak(8));
+        assertTrue(timeChecker.isPeak(7) || timeChecker.isPeak(8));
     }
     @Test
     public void testPeakJourneyWithOffPeakStartPeakEnd(){
-        assertTrue(timeChecker.peak(13) || timeChecker.peak(17));
+        assertTrue(timeChecker.isPeak(13) || timeChecker.isPeak(17));
     }
 
     @Test
     public void testOffPeakJourneyWithOffPeakStartOffEnd(){
-        assertTrue(!timeChecker.peak(13) || !timeChecker.peak(14));
+        assertTrue(!timeChecker.isPeak(13) || !timeChecker.isPeak(14));
     }
 
 
     @Test
     public void testCurrentTime(){
         long currentTime = System.currentTimeMillis();
-        assertTrue(timeChecker.peak(new Date(currentTime)) || !timeChecker.peak(new Date(currentTime)));
+        assertTrue(timeChecker.isPeak(new Date(currentTime)) || !timeChecker.isPeak(new Date(currentTime)));
     }
 
 

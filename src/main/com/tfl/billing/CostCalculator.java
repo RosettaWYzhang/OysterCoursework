@@ -28,7 +28,23 @@ public class CostCalculator {
 
     }
 
-    //needed by customer summary, but should this return void?
+    //seems useless at this stage
+    public BigDecimal calculateSingleJourney(Journey journey){
+        JourneyType type = journey.determineType();
+        switch(type){
+            case PEAK_LONG:
+                return PEAK_LONG_PRICE;
+            case PEAK_SHORT:
+                return PEAK_SHORT_PRICE;
+            case OFF_PEAK_LONG:
+                return OFF_PEAK_LONG_PRICE;
+            case OFF_PEAK_SHORT:
+                return OFF_PEAK_SHORT_PRICE;
+        }
+        return PEAK_LONG_PRICE;
+    }
+
+    // I think it's not very
     public BigDecimal calculateSum(){
         BigDecimal totalPrice = new BigDecimal(0);
         for(Journey journey : journeys) {
@@ -36,6 +52,15 @@ public class CostCalculator {
         }
         return cap(totalPrice);
     }
+
+    //needed by customer summary, but should this return void?
+    /*public BigDecimal calculateSum(){
+        BigDecimal totalPrice = new BigDecimal(0);
+        for(Journey journey : journeys) {
+            totalPrice = totalPrice.add(determinePrice(journey));
+        }
+        return cap(totalPrice);
+    }*/
 
     private BigDecimal cap(BigDecimal totalPrice){
         if(!peakFlag){
@@ -52,7 +77,7 @@ public class CostCalculator {
     public BigDecimal determinePrice(Journey journey){
         TimeChecker timeChecker = new TimeChecker(); // is timechecker necessary? consider a utility function?
         DurationChecker durationChecker = new DurationChecker();
-        boolean isPeak = timeChecker.peak(journey);
+        boolean isPeak = timeChecker.isPeak(journey);
         boolean isLong = durationChecker.isLong(journey);
 
         BigDecimal journeyPrice = OFF_PEAK_SHORT_PRICE;
@@ -77,7 +102,7 @@ public class CostCalculator {
     public BigDecimal determinePrice(Clock clockStart, Clock clockEnd){
         TimeChecker timeChecker = new TimeChecker(); // is timechecker necessary? consider a utility function?
         DurationChecker durationChecker = new DurationChecker();
-        boolean isPeak = timeChecker.peak(clockStart) || timeChecker.peak(clockEnd) ;
+        boolean isPeak = timeChecker.isPeak(clockStart) || timeChecker.isPeak(clockEnd) ;
         boolean isLong = durationChecker.isLong(clockStart, clockEnd);
 
         BigDecimal journeyPrice = OFF_PEAK_SHORT_PRICE;
@@ -98,9 +123,5 @@ public class CostCalculator {
         return journeyPrice;
     }
 
-
-    private BigDecimal roundToNearestPenny(BigDecimal poundsAndPence) {
-        return poundsAndPence.setScale(2, BigDecimal.ROUND_HALF_UP);
-    }
 
 }
