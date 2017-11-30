@@ -19,11 +19,9 @@ public class CustomerlTest {
     public void testCustomerCardId(){
         assertTrue(oysterCard.id() == customer.cardId());
     }
-    @Test
-    public void testCustomerFullName(){
-        assertTrue("Test".equals(customer.fullName()));
 
-    }
+    @Test
+    public void testCustomerFullName(){ assertTrue("Test".equals(customer.fullName())); }
 
 
 }

@@ -2,7 +2,7 @@ package com.tfl.billing;
 
 import java.util.UUID;
 
-public abstract class JourneyEvent implements JourneyEventInterface{
+public abstract class JourneyEvent {
 
     private final UUID cardId;
     private final UUID readerId;
