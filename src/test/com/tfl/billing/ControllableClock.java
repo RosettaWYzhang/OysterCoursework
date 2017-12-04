@@ -2,12 +2,9 @@ package com.tfl.billing;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by wanyuezhang on 26/11/2017.
- */
 public class ControllableClock implements Clock{
 
-    private long now;
+    private long now = System.currentTimeMillis();
 
     @Override
     public long time() {

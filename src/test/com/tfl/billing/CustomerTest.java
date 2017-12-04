@@ -9,19 +9,18 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
 
-public class CustomerlTest {
+public class CustomerTest {
     OysterCard oysterCard = new OysterCard();
-    Customer customer = new Customer("Test", oysterCard);
-
-
+    Customer customer = new Customer("Rosetta Zhang", oysterCard);
 
     @Test
     public void testCustomerCardId(){
         assertTrue(oysterCard.id() == customer.cardId());
     }
-
     @Test
-    public void testCustomerFullName(){ assertTrue("Test".equals(customer.fullName())); }
+    public void testCustomerFullName(){
+        assertTrue("Rosetta Zhang".equals(customer.fullName()));
+    }
 
 
 }

@@ -1,6 +1,6 @@
 package com.tfl.billing;
 
-public class todolist {
+public class ToDolist {
 
 // TODO: must check test
 // consider using mock //impt

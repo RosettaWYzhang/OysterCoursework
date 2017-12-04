@@ -2,35 +2,20 @@ package com.tfl.billing;
 
 import java.util.Calendar;
 import java.util.Date;
-
-
-import java.util.Calendar;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
+
+// PEAK: between 06:00 and 09:59 or between 17:00 and 19:59
 
 public class TimeChecker {
 
-    //checked
-    public boolean peak(Journey journey) {
-        return peak(journey.startTime()) || peak(journey.endTime());
+    public boolean isPeak(Journey journey) {
+        return isJourneyEventPeak(journey.startTime()) || isJourneyEventPeak(journey.endTime());
     }
 
-    //checked
-    public boolean peak(Date time) {
+    public boolean isJourneyEventPeak(Date time) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(time);
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
-        return (hour >= 6 && hour <= 9) || (hour >= 17 && hour <= 19);
-    }
-
-    //checked
-    public boolean peak(Clock clock) {
-        long millis = clock.time();
-        long hour = TimeUnit.MILLISECONDS.toHours(millis);
-        return (hour >= 6 && hour <= 9) || (hour >= 17 && hour <= 19);
-    }
-
-    public boolean peak(int hour){
         return (hour >= 6 && hour <= 9) || (hour >= 17 && hour <= 19);
     }
 

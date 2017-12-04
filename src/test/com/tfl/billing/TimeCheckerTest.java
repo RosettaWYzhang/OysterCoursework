@@ -4,50 +4,49 @@ import java.util.Date;
 import static org.junit.Assert.*;
 
 // PEAK: between 06:00 and 09:59 or between 17:00 and 19:59
-// TODO: add tests using date objects?
 
 public class TimeCheckerTest {
     TimeChecker timeChecker = new TimeChecker();
 
     @Test
     public void testMorningPeakTime(){
-        assertTrue(timeChecker.peak(7));
-
+        Journey morningPeakJourney = JourneyBuilder.aJourney().withStartTime(8,0).withEndTime(9,11).build();
+        assertTrue(timeChecker.isPeak(morningPeakJourney));
     }
+
     @Test
     public void testAfternoonPeakTime(){
-        assertTrue(timeChecker.peak(17));
-
+        Journey afternoonPeakJourney = JourneyBuilder.aJourney().withStartTime(17,0).withEndTime(17,11).build();
+        assertTrue(timeChecker.isPeak(afternoonPeakJourney));
     }
 
-    @Test
-    public void testOffPeakTime(){
-        assertTrue(!timeChecker.peak(11));
-    }
+    //TODO: fix error
+    //the time checked by time checker is 1 hour ahead of the time passed in
+    //possible because of error in time conversion
     @Test
     public void testPeakJourneyWithPeakStartOffPeakEnd(){
-        assertTrue(timeChecker.peak(7) || timeChecker.peak(13));
-
+        Journey peakStartOffPeakEndJourney = JourneyBuilder.aJourney().withStartTime(9,20).withEndTime(10,11).build();
+        assertTrue(timeChecker.isPeak(peakStartOffPeakEndJourney));
     }
+
     @Test
     public void testPeakJourneyWithPeakStartPeakEnd(){
-        assertTrue(timeChecker.peak(7) || timeChecker.peak(8));
+        Journey peakStartPeakEndJourney = JourneyBuilder.aJourney().withStartTime(8,50).withEndTime(9,11).build();
+        assertTrue(timeChecker.isPeak(peakStartPeakEndJourney));
     }
+
+
     @Test
     public void testPeakJourneyWithOffPeakStartPeakEnd(){
-        assertTrue(timeChecker.peak(13) || timeChecker.peak(17));
+        Journey offPeakStartPeakEndJourney = JourneyBuilder.aJourney().withStartTime(16,30).withEndTime(17,20).build();
+        assertTrue(timeChecker.isPeak(offPeakStartPeakEndJourney));
     }
+
 
     @Test
     public void testOffPeakJourneyWithOffPeakStartOffEnd(){
-        assertTrue(!timeChecker.peak(13) || !timeChecker.peak(14));
-    }
-
-
-    @Test
-    public void testCurrentTime(){
-        long currentTime = System.currentTimeMillis();
-        assertTrue(timeChecker.peak(new Date(currentTime)) || !timeChecker.peak(new Date(currentTime)));
+        Journey offPeakStartOffPeakEndJourney = JourneyBuilder.aJourney().withStartTime(13,30).withEndTime(14,20).build();
+        assertTrue(!timeChecker.isPeak(offPeakStartOffPeakEndJourney));
     }
 
 

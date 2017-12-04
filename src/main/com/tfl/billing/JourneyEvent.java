@@ -15,9 +15,7 @@ public abstract class JourneyEvent {
     }
 
 
-
     public long time() { return clock; }
-
 
     public UUID cardId() {
         return cardId;

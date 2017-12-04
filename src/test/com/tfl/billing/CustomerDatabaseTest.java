@@ -12,12 +12,12 @@ import java.util.UUID;
 
 
 public class CustomerDatabaseTest {
+
     CustomerDatabase customerDatabase = CustomerDatabase.getInstance();
     List<Customer> customers = customerDatabase.getCustomers();
 
     @Test
     public void testGetCustomerList(){
-        System.out.println(customers.size());
         assertTrue(customers.size() > 0);
     }
 
