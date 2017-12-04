@@ -1,29 +1,34 @@
 package com.tfl.billing;
 
-import org.junit.Test;
 
-import java.util.UUID;
+import org.junit.Test;
+import static com.tfl.billing.JourneyBuilder.*;
+
 
 import static org.junit.Assert.*;
 
 
-public class DurationCheckerTest {
-    private ControllableClock clockStart = new ControllableClock();
-    private ControllableClock clockEnd = new ControllableClock();
+public class DurationCheckerTest{
     private DurationChecker durationChecker = new DurationChecker();
 
     @Test
     public void testDurationIsShort(){
-        clockStart.setTime(11,25);
-        clockEnd.setTime(11,35);
-        assertTrue(!durationChecker.isLong(clockStart, clockEnd));
+        int startHour = 11;
+        int startMinutes = 25;
+        int endHour = 11;
+        int endMinutes = 35;
+        Journey journey = aJourney().withStartTime(startHour, startMinutes).withEndTime(endHour, endMinutes).build();
+        assertFalse(durationChecker.isLong(journey));
     }
 
     @Test
     public void testDurationIsLong(){
-        clockStart.setTime(11,25);
-        clockEnd.setTime(11,55);
-        assertTrue(durationChecker.isLong(clockStart, clockEnd));
+        int startHour = 11;
+        int startMinutes = 25;
+        int endHour = 12;
+        int endMinutes = 55;
+        Journey journey = aJourney().withStartTime(startHour, startMinutes).withEndTime(endHour, endMinutes).build();
+        assertTrue(durationChecker.isLong(journey));
     }
 
 

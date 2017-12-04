@@ -4,14 +4,28 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.UUID;
 
-public class Journey {
-
+public class Journey{
     private final JourneyEvent start;
     private final JourneyEvent end;
+    private final JourneyType journeyType;
+    private final BigDecimal journeyPrice;
+    private boolean isPeak;
+    private boolean isLong;
+
 
     public Journey(JourneyEvent start, JourneyEvent end) {
         this.start = start;
         this.end = end;
+        this.journeyType = determineType();
+        this.journeyPrice = determinePrice();
+    }
+
+    public String formattedStartTime() {
+        return new DateFormatter().format(start.time());
+    }
+
+    public String formattedEndTime() {
+        return new DateFormatter().format(end.time());
     }
 
     public UUID originId() {
@@ -22,14 +36,6 @@ public class Journey {
         return end.readerId();
     }
 
-    public String formattedStartTime() {
-        return new Formatter(start.time()).format();
-    }
-
-    public String formattedEndTime() {
-        return new Formatter(end.time()).format();
-    }
-
     public Date startTime() {
         return new Date(start.time());
     }
@@ -38,15 +44,27 @@ public class Journey {
         return new Date(end.time());
     }
 
-    //rationale: a journey should know its own type, so that we can eliminate some if/else in costCalculator
-    //however, I dont think it's a good design as later we need to ask the journey for its own price,
-    // break tell and dont ask principle
-    // need to be deleted
-    public JourneyType determineType(){
+    private void checkDurationIsLong(){
         DurationChecker durationChecker = new DurationChecker();
+        this.isLong = durationChecker.isLong(this);
+    }
+
+    private void checkTimeIsPeak(){
         TimeChecker timeChecker = new TimeChecker();
-        boolean isLong = durationChecker.isLong(this);
-        boolean isPeak = timeChecker.isPeak(this);
+        this.isPeak = timeChecker.isPeak(this);
+    }
+
+    public boolean getTimeIsPeak(){
+        return isPeak;
+    }
+
+    public boolean getDurationIsLong(){
+        return isLong;
+    }
+
+    private JourneyType determineType(){
+        checkDurationIsLong();
+        checkTimeIsPeak();
         if(isLong && isPeak){
             return JourneyType.PEAK_LONG;
         }
@@ -61,13 +79,22 @@ public class Journey {
 
     }
 
-
-    // Shoud a journey should know its own price?
-
-    private BigDecimal roundToNearestPenny(BigDecimal poundsAndPence) {
-        return poundsAndPence.setScale(2, BigDecimal.ROUND_HALF_UP);
+    private BigDecimal determinePrice(){
+        CostCalculator calculator = new CostCalculator();
+        return calculator.calculateSingleJourney(journeyType);
     }
 
-
+    public BigDecimal getJourneyPrice(){
+        return journeyPrice;
+    }
+    public JourneyEvent getJourneyStart(){
+        return start;
+    }
+    public JourneyEvent getJourneyEnd(){
+        return end;
+    }
+    public JourneyType getJourneyType(){
+        return journeyType;
+    }
 
 }

@@ -11,9 +11,7 @@ import static org.junit.Assert.assertTrue;
 
 public class CustomerTest {
     OysterCard oysterCard = new OysterCard();
-    Customer customer = new Customer("Test", oysterCard);
-
-
+    Customer customer = new Customer("Rosetta Zhang", oysterCard);
 
     @Test
     public void testCustomerCardId(){
@@ -21,8 +19,7 @@ public class CustomerTest {
     }
     @Test
     public void testCustomerFullName(){
-        assertTrue("Test".equals(customer.fullName()));
-
+        assertTrue("Rosetta Zhang".equals(customer.fullName()));
     }
 
 

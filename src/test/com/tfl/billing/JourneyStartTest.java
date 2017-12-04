@@ -14,14 +14,13 @@ public class JourneyStartTest {
     private JourneyEvent newEvent = new JourneyStart(cardId_test, readerId_test,clock);
 
 
-
     @Test
-    public void returnCardIdTest() {
+    public void testCardIdIsAddedInJourneyStart() {
         assertThat(newEvent.cardId(), is(cardId_test));
     }
 
     @Test
-    public void returnReaderIdTest(){
+    public void testReaderIdIsAddedInJourneyStart(){
         assertThat(newEvent.readerId(),is(readerId_test));
     }
 

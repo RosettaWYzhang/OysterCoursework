@@ -15,12 +15,12 @@ public class JourneyEndTest {
     private JourneyEvent newEvent = new JourneyEnd(cardId_test, readerId_test,clock);
 
     @Test
-    public void checkCardIdInEndTest() {
+    public void testCardIdIsAddedInJourneyEnd() {
         assertThat(newEvent.cardId(), is(cardId_test));
     }
 
     @Test
-    public void checkReaderIdInEndTest(){
+    public void testReaderIdIsAddedInJourneyStart(){
         assertThat(newEvent.readerId(),is(readerId_test));
     }
 

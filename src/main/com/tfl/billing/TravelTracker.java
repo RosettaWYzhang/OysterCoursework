@@ -1,17 +1,16 @@
 package com.tfl.billing;
 
 import com.oyster.*;
-import com.tfl.external.CustomerDatabase;
 
 import java.util.*;
 
 public class TravelTracker implements ScanListener {
-    public Set<UUID> getCurrentlyTravelling() {
-        return currentlyTravelling;
-    }
-
     private final Set<UUID> currentlyTravelling = new HashSet<UUID>();
+    private final CustomerDatabaseIF database;
 
+    public TravelTracker(CustomerDatabaseIF database) {
+        this.database = database;
+    }
 
     public void connect(OysterCardReader... cardReaders) {
         for (OysterCardReader cardReader : cardReaders) {
@@ -21,22 +20,28 @@ public class TravelTracker implements ScanListener {
 
     @Override
     public void cardScanned(UUID cardId, UUID readerId) {
-        EventLogger eventLog = EventLogger.getInstance();
+        EventLogger eventLogger = EventLogger.getInstance();
         SystemClock clock = new SystemClock();
 
-        if (currentlyTravelling.contains(cardId)) {
-            eventLog.add(new JourneyEnd(cardId, readerId, clock));
+        if (isTravelling(cardId)) {
+            eventLogger.add(new JourneyEnd(cardId, readerId, clock));
             currentlyTravelling.remove(cardId);
         } else {
-            //checked
-            if (CustomerDatabase.getInstance().isRegisteredId(cardId)) {
+            if (database.isRegisteredId(cardId)) {
                 currentlyTravelling.add(cardId);
-                eventLog.add(new JourneyStart(cardId, readerId, clock));
+                eventLogger.add(new JourneyStart(cardId, readerId, clock));
             } else {
-                //checked
                 throw new UnknownOysterCardException(cardId);
             }
         }
+    }
+
+    public boolean isTravelling(UUID cardId) {
+        return currentlyTravelling.contains(cardId);
+    }
+
+    public Set<UUID> getCurrentlyTravelling() {
+        return currentlyTravelling;
     }
 
 

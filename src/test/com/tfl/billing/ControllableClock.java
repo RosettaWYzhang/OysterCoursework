@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ControllableClock implements Clock{
 
-    private long now;
+    private long now = System.currentTimeMillis();
 
     @Override
     public long time() {
