@@ -1,77 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e98d974f-5fcb-45ae-8d0a-f5d88e507043" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/com/tfl/billing/ChargeAllCustomers.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/com/tfl/billing/CustomerDatabaseIF.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/com/tfl/billing/EventLoggerIF.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/com/tfl/billing/JourneyBuilder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/com/tfl/billing/JourneyTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/com/tfl/billing/MockCustomerDatabase.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/com/tfl/billing/MockEventLogger.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/com/tfl/billing/SystemTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/com/tfl/billing/TravelTrackerTest.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/Formatter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/JourneyPrinter.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/Price.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/TypeFinder.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/CardScannerTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/CustomerlTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/JourneyEventTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/OysterCardReaderTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/com/tfl/billing/JourneyPrinter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/com/tfl/billing/TypeFinder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/com/tfl/billing/CardScannerTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/com/tfl/billing/CustomerlTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/com/tfl/billing/JourneyEventTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/com/tfl/billing/OysterCardReaderTest.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/com/tfl/billing/Formatter.java" afterPath="$PROJECT_DIR$/src/main/com/tfl/billing/DateFormatter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/com/tfl/billing/todolist.java" afterPath="$PROJECT_DIR$/src/main/com/tfl/billing/ToDolist.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/CostCalculator$1.class" afterPath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/CostCalculator$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/CostCalculator.class" afterPath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/CostCalculator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/CustomerSummary.class" afterPath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/CustomerSummary.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/DurationChecker.class" afterPath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/DurationChecker.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/EntryPoint.class" afterPath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/EntryPoint.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/EventLogger.class" afterPath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/EventLogger.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/Journey.class" afterPath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/Journey.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/JourneyEvent.class" afterPath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/JourneyEvent.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/TimeChecker.class" afterPath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/TimeChecker.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/TravelTracker.class" afterPath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/TravelTracker.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/todolist.class" afterPath="$PROJECT_DIR$/out/production/helloworld/com/tfl/billing/todolist.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/ControllableClock.class" afterPath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/ControllableClock.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/CustomerDatabaseTest.class" afterPath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/CustomerDatabaseTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/CustomerSummaryTest.class" afterPath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/CustomerSummaryTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/CustomerTest.class" afterPath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/CustomerTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/DurationCheckerTest.class" afterPath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/DurationCheckerTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/EventLoggerTest.class" afterPath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/EventLoggerTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/JourneyEndTest.class" afterPath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/JourneyEndTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/JourneyPriceTest.class" afterPath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/JourneyPriceTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/JourneyStartTest.class" afterPath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/JourneyStartTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/OysterCardTest.class" afterPath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/OysterCardTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/TimeCheckerTest.class" afterPath="$PROJECT_DIR$/out/test/helloworld/com/tfl/billing/TimeCheckerTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/com/tfl/billing/Clock.java" afterPath="$PROJECT_DIR$/src/main/com/tfl/billing/Clock.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/com/tfl/billing/CostCalculator.java" afterPath="$PROJECT_DIR$/src/main/com/tfl/billing/CostCalculator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/com/tfl/billing/CustomerSummary.java" afterPath="$PROJECT_DIR$/src/main/com/tfl/billing/CustomerSummary.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/com/tfl/billing/DurationChecker.java" afterPath="$PROJECT_DIR$/src/main/com/tfl/billing/DurationChecker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/com/tfl/billing/EntryPoint.java" afterPath="$PROJECT_DIR$/src/main/com/tfl/billing/EntryPoint.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/com/tfl/billing/EventLogger.java" afterPath="$PROJECT_DIR$/src/main/com/tfl/billing/EventLogger.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/com/tfl/billing/Journey.java" afterPath="$PROJECT_DIR$/src/main/com/tfl/billing/Journey.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/com/tfl/billing/JourneyEvent.java" afterPath="$PROJECT_DIR$/src/main/com/tfl/billing/JourneyEvent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/com/tfl/billing/TimeChecker.java" afterPath="$PROJECT_DIR$/src/main/com/tfl/billing/TimeChecker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/com/tfl/billing/TravelTracker.java" afterPath="$PROJECT_DIR$/src/main/com/tfl/billing/TravelTracker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/com/tfl/billing/ControllableClock.java" afterPath="$PROJECT_DIR$/src/test/com/tfl/billing/ControllableClock.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/com/tfl/billing/CustomerDatabaseTest.java" afterPath="$PROJECT_DIR$/src/test/com/tfl/billing/CustomerDatabaseTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/com/tfl/billing/CustomerSummaryTest.java" afterPath="$PROJECT_DIR$/src/test/com/tfl/billing/CustomerSummaryTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/com/tfl/billing/CustomerTest.java" afterPath="$PROJECT_DIR$/src/test/com/tfl/billing/CustomerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/com/tfl/billing/DurationCheckerTest.java" afterPath="$PROJECT_DIR$/src/test/com/tfl/billing/DurationCheckerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/com/tfl/billing/EventLoggerTest.java" afterPath="$PROJECT_DIR$/src/test/com/tfl/billing/EventLoggerTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/com/tfl/billing/JourneyEndTest.java" afterPath="$PROJECT_DIR$/src/test/com/tfl/billing/JourneyEndTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/com/tfl/billing/JourneyPriceTest.java" afterPath="$PROJECT_DIR$/src/test/com/tfl/billing/JourneyPriceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/com/tfl/billing/JourneyStartTest.java" afterPath="$PROJECT_DIR$/src/test/com/tfl/billing/JourneyStartTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/com/tfl/billing/OysterCardTest.java" afterPath="$PROJECT_DIR$/src/test/com/tfl/billing/OysterCardTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/com/tfl/billing/TimeCheckerTest.java" afterPath="$PROJECT_DIR$/src/test/com/tfl/billing/TimeCheckerTest.java" />
-    </list>
+    <list default="true" id="e98d974f-5fcb-45ae-8d0a-f5d88e507043" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -86,16 +16,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="JourneyEvent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/com/tfl/billing/JourneyEvent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="JourneyStart.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/com/tfl/billing/JourneyStart.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -136,7 +56,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ToDolist.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ToDolist.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/com/tfl/billing/ToDolist.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
@@ -168,7 +88,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomerDatabaseTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CustomerDatabaseTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/com/tfl/billing/CustomerDatabaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="176">
@@ -177,6 +97,16 @@
                 <element signature="e#499#500#0" expanded="true" />
                 <element signature="e#547#548#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChargeAllCustomers.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/com/tfl/billing/ChargeAllCustomers.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -347,24 +277,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="helloworld" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="billing" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -837,7 +749,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980132" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298272" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38339922" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38339922" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992327" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992327" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1118,14 +1030,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/tfl/billing/ChargeAllCustomers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="16" column="29" lean-forward="true" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/com/tfl/billing/Clock.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1246,18 +1150,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/com/tfl/billing/ToDolist.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/com/tfl/billing/UnknownOysterCardException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/com/tfl/billing/ChargeAllCustomers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/com/tfl/billing/CustomerDatabaseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="20" column="19" lean-forward="false" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+          <folding>
+            <element signature="e#499#500#0" expanded="true" />
+            <element signature="e#547#548#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/com/tfl/billing/ControllableClock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="29" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1272,22 +1195,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/com/tfl/billing/ControllableClock.java">
+    <entry file="file://$PROJECT_DIR$/src/main/com/tfl/billing/ToDolist.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="29" lean-forward="false" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="29" />
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/com/tfl/billing/CustomerDatabaseTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="20" column="19" lean-forward="false" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
-          <folding>
-            <element signature="e#499#500#0" expanded="true" />
-            <element signature="e#547#548#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
