@@ -6,6 +6,8 @@ import com.tfl.underground.OysterReaderLocator;
 import com.tfl.underground.Station;
 import org.junit.Test;
 import java.util.UUID;
+
+import static java.lang.invoke.MethodHandles.catchException;
 import static org.junit.Assert.*;
 
 public class TravelTrackerTest {

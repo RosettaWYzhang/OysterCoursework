@@ -1,6 +1,9 @@
 package com.tfl.billing;
 
+import com.oyster.OysterCardReader;
 import com.tfl.external.Customer;
+import com.tfl.underground.OysterReaderLocator;
+import com.tfl.underground.Station;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -51,13 +54,14 @@ public class CustomerSummaryTest {
 
     @Test
     public void checkJourneyListNotEmpty(){
-        UUID readerId = UUID.randomUUID();
+        OysterCardReader paddingtonReader = OysterReaderLocator.atStation(Station.PADDINGTON);
+        UUID readerId = paddingtonReader.id();
         ControllableClock clock = new ControllableClock();
         JourneyStart start = new JourneyStart(cardId,readerId,clock);
         JourneyEnd end = new JourneyEnd(cardId,readerId,clock);
         eventLogger.add(start);
         eventLogger.add(end);
-        customerSummary.summariseJourney(eventLogger);
+        customerSummary.chargeCustomer(eventLogger);
         System.out.println(customerSummary.getJourneys().size());
         assertTrue(customerSummary.getJourneys().size() == 1);
     }
