@@ -20,12 +20,9 @@ public class TimeCheckerTest {
         assertTrue(timeChecker.isPeak(afternoonPeakJourney));
     }
 
-    //TODO: fix error
-    //the time checked by time checker is 1 hour ahead of the time passed in
-    //possible because of error in time conversion
     @Test
     public void testPeakJourneyWithPeakStartOffPeakEnd(){
-        Journey peakStartOffPeakEndJourney = JourneyBuilder.aJourney().withStartTime(9,20).withEndTime(10,11).build();
+        Journey peakStartOffPeakEndJourney = JourneyBuilder.aJourney().withStartTime(8,20).withEndTime(10,11).build();
         assertTrue(timeChecker.isPeak(peakStartOffPeakEndJourney));
     }
 
@@ -48,6 +45,5 @@ public class TimeCheckerTest {
         Journey offPeakStartOffPeakEndJourney = JourneyBuilder.aJourney().withStartTime(13,30).withEndTime(14,20).build();
         assertTrue(!timeChecker.isPeak(offPeakStartOffPeakEndJourney));
     }
-
 
 }

@@ -6,15 +6,14 @@ import com.tfl.external.PaymentsSystem;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.UUID;
 
-public class PaymentSystemAdapter implements PaymentSystemIF {
-    private static PaymentsSystem paymentsSystem =PaymentsSystem.getInstance();
-    private static PaymentSystemAdapter instance = new PaymentSystemAdapter();
-    private PaymentSystemAdapter(){}
+public class PaymentsSystemAdapter implements PaymentsSystemIF {
+    private static PaymentsSystem paymentsSystem = PaymentsSystem.getInstance();
+    private static PaymentsSystemAdapter instance = new PaymentsSystemAdapter();
 
-    @Override
-    public PaymentSystemAdapter getInstance() {
+    private PaymentsSystemAdapter(){}
+
+    public static PaymentsSystemAdapter getInstance(){
         return instance;
     }
 
@@ -23,8 +22,11 @@ public class PaymentSystemAdapter implements PaymentSystemIF {
         paymentsSystem.charge(customer, journeys, totalBill);
     }
 
-    @Override
-    public String stationWithReader(UUID originId) {
-        return null;
+    public void chargeAllAccounts(List<Customer> customers){
+        for(Customer customer: customers){
+            CustomerSummary summary = new CustomerSummary(customer);
+            summary.chargeCustomer(EventLogger.getInstance());
+        }
     }
+
 }
