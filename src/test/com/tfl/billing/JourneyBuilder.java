@@ -30,7 +30,7 @@ public class JourneyBuilder {
 
     public JourneyBuilder withEndTime(int hours, int minutes){
         clockEnd.setTime(hours, minutes);
-        this.end = new JourneyStart(cardID, readerID, clockEnd);
+        this.end = new JourneyEnd(cardID, readerID, clockEnd);
         return this;
     }
 
@@ -41,3 +41,6 @@ public class JourneyBuilder {
 
 
 }
+
+
+
