@@ -18,7 +18,6 @@ public class TravelTracker implements ScanListener{
         }
     }
 
-
     // called by touch method in OysterCardReader
     // TODO: use polymorphism
     // TODO: card state should have 1 method

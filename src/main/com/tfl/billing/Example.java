@@ -10,29 +10,57 @@ import java.util.UUID;
 
 public class Example {
     public static void main(String[] args){
-        //1. get an external customer through adapter
+        //1. get two external customer through adapter
         CustomerDatabaseAdapter adapter = new CustomerDatabaseAdapter();
         Customer customer = adapter.getCustomers().get(0);
+        Customer customer2 = adapter.getCustomers().get(1);
         UUID cardId = customer.cardId();
+        UUID cardId2 = customer2.cardId();
+
 
         //2. initialise card reader at start and end destination
         OysterCardReader paddingtonReader = OysterReaderLocator.atStation(Station.PADDINGTON);
-        OysterCardReader bakerStreetReader = OysterReaderLocator.atStation(Station.BAKER_STREET);
+        OysterCardReader bakerStreetReader = OysterReaderLocator.atStation(Station  .BAKER_STREET);
+        OysterCardReader angelReader = OysterReaderLocator.atStation(Station.ANGEL);
+        OysterCardReader aldgateEastReader = OysterReaderLocator.atStation(Station.ALDGATE_EAST);
 
-        //3. use tracker to connect the two stations
-        TravelTracker tracker = new TravelTracker(adapter);
-        tracker.connect(paddingtonReader,bakerStreetReader);
+        //3. use tracker to connect relative
+        TravelTracker tracker1 = new TravelTracker(adapter);
+        tracker1.connect(paddingtonReader,bakerStreetReader,angelReader);
+        TravelTracker tracker2 = new TravelTracker(adapter);
+        tracker2.connect(aldgateEastReader,paddingtonReader,bakerStreetReader,angelReader);
 
-        //4. customer touches card at the two stations
-        OysterCard myCard = new OysterCard(cardId.toString());
-        paddingtonReader.touch(myCard);
-        bakerStreetReader.touch(myCard);
+        //4. customer touches card at each stations
+        OysterCard myCard1 = new OysterCard(cardId.toString());
+        OysterCard myCard2 = new OysterCard(cardId2.toString());
 
-        //5. summarise customer journey and print journey
+        //4.1 customer 1 below cap
+        paddingtonReader.touch(myCard1);
+        bakerStreetReader.touch(myCard1);
+        bakerStreetReader.touch(myCard1);
+        angelReader.touch(myCard1);
+
+        //4.2 customer 2 over cap
+        paddingtonReader.touch(myCard2);
+        bakerStreetReader.touch(myCard2);
+        bakerStreetReader.touch(myCard2);
+        aldgateEastReader.touch(myCard2);
+        aldgateEastReader.touch(myCard2);
+        angelReader.touch(myCard2);
+        angelReader.touch(myCard2);
+        paddingtonReader.touch(myCard2);
+        paddingtonReader.touch(myCard2);
+        bakerStreetReader.touch(myCard2);
+
+
+        //5. summarise customer journey and print journey for each customer.
         CustomerSummary summary = new CustomerSummary(customer);
         summary.chargeCustomer(EventLogger.getInstance());
+        CustomerSummary summary2 = new CustomerSummary(customer2);
+        summary2.chargeCustomer(EventLogger.getInstance());
 
-        //6. charge all customers
+
+        //6. charge all customers and print the whole journey from database
         PaymentsSystemAdapter.getInstance().chargeAllAccounts(adapter.getCustomers());
     }
 }
