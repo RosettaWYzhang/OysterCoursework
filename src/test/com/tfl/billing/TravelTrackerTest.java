@@ -20,9 +20,6 @@ public class TravelTrackerTest {
     UUID validCardId = mockCustomerDatabase.getCustomers().get(0).cardId();
     OysterCard validCard = new OysterCard(validCardId.toString());
 
-    @Rule
-    public JUnitRuleMockery context = new JUnitRuleMockery();
-    OysterCardReader oysterCardReader = context.mock(OysterCardReader.class);
 
     @Test(expected = UnknownOysterCardException.class)
     public void testUnknownOyster(){

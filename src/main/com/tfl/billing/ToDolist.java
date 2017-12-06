@@ -29,8 +29,4 @@ public class ToDolist {
 // adapter: adapter for external system
 // decorator:
 
-
-
-
-
 }
