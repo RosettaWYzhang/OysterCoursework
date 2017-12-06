@@ -37,6 +37,4 @@ public class EventLoggerTest {
         assertTrue(eventLogger.getEventLog().size()==2);
     }
 
-
-
 }

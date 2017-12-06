@@ -61,7 +61,7 @@ public class CustomerSummaryTest {
         JourneyEnd end = new JourneyEnd(cardId,readerId,clock);
         eventLogger.add(start);
         eventLogger.add(end);
-        customerSummary.chargeCustomer(eventLogger);
+        customerSummary.printCustomerBill(eventLogger);
         System.out.println(customerSummary.getJourneys().size());
         assertTrue(customerSummary.getJourneys().size() == 1);
     }
@@ -138,7 +138,5 @@ public class CustomerSummaryTest {
         System.out.print("Customer: " + customer.fullName() + " - " + customer.cardId());
         assertEquals("Customer: " + customer.fullName() + " - " + customer.cardId(), Content.toString());
     }
-
-
 
 }
