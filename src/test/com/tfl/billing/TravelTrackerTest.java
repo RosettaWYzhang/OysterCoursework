@@ -4,6 +4,9 @@ import com.oyster.OysterCard;
 import com.oyster.OysterCardReader;
 import com.tfl.underground.OysterReaderLocator;
 import com.tfl.underground.Station;
+import org.jmock.Expectations;
+import org.jmock.integration.junit4.JUnitRuleMockery;
+import org.junit.Rule;
 import org.junit.Test;
 import java.util.UUID;
 
@@ -17,6 +20,9 @@ public class TravelTrackerTest {
     UUID validCardId = mockCustomerDatabase.getCustomers().get(0).cardId();
     OysterCard validCard = new OysterCard(validCardId.toString());
 
+    @Rule
+    public JUnitRuleMockery context = new JUnitRuleMockery();
+    OysterCardReader oysterCardReader = context.mock(OysterCardReader.class);
 
     @Test(expected = UnknownOysterCardException.class)
     public void testUnknownOyster(){
@@ -47,5 +53,7 @@ public class TravelTrackerTest {
         paddingtonReader.touch(validCard);
         assertFalse(tracker.getCurrentlyTravelling().contains(validCard.id()));
     }
+
+
 
 }

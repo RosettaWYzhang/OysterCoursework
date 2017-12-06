@@ -38,4 +38,5 @@ public class CustomerDatabaseAdapterTest {
         assertFalse(adapter.isRegisteredId(fakeCardId));
     }
 
+
 }

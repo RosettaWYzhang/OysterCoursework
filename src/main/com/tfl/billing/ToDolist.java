@@ -28,4 +28,9 @@ public class ToDolist {
 // facade: wrapping to reduce complexity, probably preferable than factory for convertEventLogToJourneys?
 // adapter: adapter for external system
 // decorator:
+
+
+
+
+
 }
