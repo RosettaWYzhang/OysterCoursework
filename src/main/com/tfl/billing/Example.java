@@ -77,6 +77,5 @@ public class Example {
         PaymentsSystemAdapter.getInstance().chargeAllAccounts(database.getCustomers());
     }
 
-
 }
 
