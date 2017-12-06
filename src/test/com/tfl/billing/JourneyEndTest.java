@@ -1,5 +1,8 @@
 package com.tfl.billing;
 
+import org.jmock.Expectations;
+import org.jmock.integration.junit4.JUnitRuleMockery;
+import org.junit.Rule;
 import org.junit.Test;
 
 import java.util.UUID;
@@ -14,6 +17,11 @@ public class JourneyEndTest {
     Clock clock = new SystemClock();
     private JourneyEvent newEvent = new JourneyEnd(cardId_test, readerId_test,clock);
 
+    @Rule
+    public JUnitRuleMockery context = new JUnitRuleMockery();
+
+    Clock mockClock = context.mock(Clock.class);
+
     @Test
     public void testCardIdIsAddedInJourneyEnd() {
         assertThat(newEvent.cardId(), is(cardId_test));
@@ -22,6 +30,14 @@ public class JourneyEndTest {
     @Test
     public void testReaderIdIsAddedInJourneyStart(){
         assertThat(newEvent.readerId(),is(readerId_test));
+    }
+
+    @Test
+    public void testJourneyEndSetsClockTime(){
+        context.checking(new Expectations() {{
+            exactly(1).of(mockClock).time();
+        }});
+        new JourneyStart(newEvent.cardId(), newEvent.readerId(), mockClock);
     }
 
 }

@@ -12,17 +12,6 @@ public class TravelTracker implements ScanListener{
         this.database = database;
     }
 
-    public void connect(OysterCardReader... cardReaders) {
-        for (OysterCardReader cardReader : cardReaders) {
-            cardReader.register(this);
-        }
-    }
-
-
-    // called by touch method in OysterCardReader
-    // TODO: use polymorphism
-    // TODO: card state should have 1 method
-    // TODO: in different implementation of the interface, some return exception, some add to eventlogger add call remove, some add to both eventLogger and currently travelling
     @Override
     public void cardScanned(UUID cardId, UUID readerId) {
         EventLogger eventLogger = EventLogger.getInstance();
@@ -48,7 +37,5 @@ public class TravelTracker implements ScanListener{
     public Set<UUID> getCurrentlyTravelling() {
         return currentlyTravelling;
     }
-
-
 
 }

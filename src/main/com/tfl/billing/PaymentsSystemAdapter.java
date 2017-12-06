@@ -25,7 +25,7 @@ public class PaymentsSystemAdapter implements PaymentsSystemIF {
     public void chargeAllAccounts(List<Customer> customers){
         for(Customer customer: customers){
             CustomerSummary summary = new CustomerSummary(customer);
-            summary.chargeCustomer(EventLogger.getInstance());
+            summary.printCustomerBill(EventLogger.getInstance());
         }
     }
 
