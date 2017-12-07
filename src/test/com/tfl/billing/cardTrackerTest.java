@@ -12,21 +12,21 @@ import java.util.UUID;
 
 import static org.junit.Assert.*;
 
-public class cardTrackerTest {
+public class CardTrackerTest {
     @Rule
     public JUnitRuleMockery context = new JUnitRuleMockery();
     CustomerDatabaseIF customerDatabaseIF = context.mock(CustomerDatabaseIF.class);
 
     OysterCardReader paddingtonReader = OysterReaderLocator.atStation(Station.PADDINGTON);
     MockCustomerDatabase mockCustomerDatabase = MockCustomerDatabase.getInstance();
-    cardTracker scanner = new cardTracker(mockCustomerDatabase);
+    CardTracker scanner = new CardTracker(mockCustomerDatabase);
     UUID validCardId = mockCustomerDatabase.getCustomers().get(0).cardId();
     OysterCard validCard = new OysterCard(validCardId.toString());
 
 
     @Test
     public void testCardTrackerChecksIfCardIsRegistered() {
-        cardTracker cardTracker = new cardTracker(customerDatabaseIF);
+        CardTracker cardTracker = new CardTracker(customerDatabaseIF);
         context.checking(new Expectations() {{
             exactly(1).of(customerDatabaseIF).isRegisteredId(validCardId);
         }});

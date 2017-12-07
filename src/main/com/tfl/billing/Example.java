@@ -36,10 +36,10 @@ public class Example {
         UUID cardId2 = customer2.cardId();
 
         //2. use station connector to connect stations
-        cardTracker scanner1 = new cardTracker(database);
+        CardTracker scanner1 = new CardTracker(database);
         StationConnector connector1 = new StationConnector(scanner1);
         connector1.connect(paddingtonReader,bakerStreetReader,angelReader);
-        cardTracker tracker2 = new cardTracker(database);
+        CardTracker tracker2 = new CardTracker(database);
         StationConnector connector2 = new StationConnector(tracker2);
         connector2.connect(aldgateEastReader,paddingtonReader,bakerStreetReader,angelReader);
 
