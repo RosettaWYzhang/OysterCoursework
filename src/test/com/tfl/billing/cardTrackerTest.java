@@ -12,26 +12,26 @@ import java.util.UUID;
 
 import static org.junit.Assert.*;
 
-public class TravelTrackerTest {
+public class cardTrackerTest {
     @Rule
     public JUnitRuleMockery context = new JUnitRuleMockery();
     CustomerDatabaseIF customerDatabaseIF = context.mock(CustomerDatabaseIF.class);
 
     OysterCardReader paddingtonReader = OysterReaderLocator.atStation(Station.PADDINGTON);
     MockCustomerDatabase mockCustomerDatabase = MockCustomerDatabase.getInstance();
-    TravelTracker scanner = new TravelTracker(mockCustomerDatabase);
+    cardTracker scanner = new cardTracker(mockCustomerDatabase);
     UUID validCardId = mockCustomerDatabase.getCustomers().get(0).cardId();
     OysterCard validCard = new OysterCard(validCardId.toString());
 
 
     @Test
-    public void testTravelTrackerChecksIfCardIsRegistered() {
-        TravelTracker travelTracker = new TravelTracker(customerDatabaseIF);
+    public void testCardTrackerChecksIfCardIsRegistered() {
+        cardTracker cardTracker = new cardTracker(customerDatabaseIF);
         context.checking(new Expectations() {{
             exactly(1).of(customerDatabaseIF).isRegisteredId(validCardId);
         }});
         try {
-            travelTracker.cardScanned(validCardId, paddingtonReader.id());
+            cardTracker.cardScanned(validCardId, paddingtonReader.id());
         }catch (Exception e){
         }
     }
@@ -53,7 +53,7 @@ public class TravelTrackerTest {
         assertFalse(scanner.isTravelling(validCardId));
         paddingtonReader.register(scanner);
         paddingtonReader.touch(validCard);
-        assertTrue(scanner.getCurrentlyTravelling().contains(validCardId));
+        assertTrue(scanner.isTravelling(validCardId));
     }
 
     @Test
@@ -61,9 +61,9 @@ public class TravelTrackerTest {
         assertFalse(scanner.isTravelling(validCardId));
         paddingtonReader.register(scanner);
         paddingtonReader.touch(validCard);
-        assertTrue(scanner.getCurrentlyTravelling().contains(validCardId));
+        assertTrue(scanner.isTravelling(validCardId));
         paddingtonReader.touch(validCard);
-        assertFalse(scanner.getCurrentlyTravelling().contains(validCard.id()));
+        assertFalse(scanner.isTravelling(validCard.id()));
     }
 
 }
