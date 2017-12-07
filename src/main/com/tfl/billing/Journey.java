@@ -1,6 +1,7 @@
 package com.tfl.billing;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
@@ -95,6 +96,13 @@ public class Journey{
     }
     public JourneyType getJourneyType(){
         return journeyType;
+    }
+
+
+    private static class DateFormatter {
+        public String format(long time) {
+            return SimpleDateFormat.getInstance().format(new Date(time));
+        }
     }
 
 }

@@ -16,14 +16,8 @@ public class Example {
     OysterCardReader angelReader = OysterReaderLocator.atStation(Station.ANGEL);
     OysterCardReader aldgateEastReader = OysterReaderLocator.atStation(Station.ALDGATE_EAST);
 
-    // example run
     public static void main(String[] args) {
         new Example().run();
-    }
-
-    public Customer getCustomer(int index){
-        Customer customer = database.getCustomers().get(index);
-        return customer;
     }
 
 
@@ -76,6 +70,13 @@ public class Example {
         //6. charge all customers and print the whole journey from database
         PaymentsSystemAdapter.getInstance().chargeAllAccounts(database.getCustomers());
     }
+
+
+    public Customer getCustomer(int index){
+        Customer customer = database.getCustomers().get(index);
+        return customer;
+    }
+
 
 }
 
