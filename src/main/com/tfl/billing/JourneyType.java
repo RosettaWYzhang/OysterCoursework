@@ -7,3 +7,6 @@ public enum JourneyType {
     OFF_PEAK_LONG,
     OFF_PEAK_SHORT;
 }
+
+
+

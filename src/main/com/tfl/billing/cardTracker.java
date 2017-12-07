@@ -4,11 +4,11 @@ import com.oyster.*;
 
 import java.util.*;
 
-public class TravelTracker implements ScanListener{
+public class cardTracker implements ScanListener{
     private final Set<UUID> currentlyTravelling = new HashSet<UUID>();
     private final CustomerDatabaseIF database;
 
-    public TravelTracker(CustomerDatabaseIF database) {
+    public cardTracker(CustomerDatabaseIF database) {
         this.database = database;
     }
 

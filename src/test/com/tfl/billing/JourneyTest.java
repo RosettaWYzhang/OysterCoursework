@@ -70,6 +70,7 @@ public class JourneyTest {
         Journey peakShortJourney = JourneyBuilder.aJourney().withStartTime(7,0).withEndTime(7,15).build();
         assertEquals(peakShortJourney.getJourneyType(),JourneyType.PEAK_SHORT);
     }
+
     @Test
     public void testPeakLongJourneyType(){
         Journey peakLongJourney = JourneyBuilder.aJourney().withStartTime(7,0).withEndTime(8,15).build();
