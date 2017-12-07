@@ -33,9 +33,4 @@ public class CardTracker implements ScanListener{
     public boolean isTravelling(UUID cardId) {
         return currentlyTravelling.contains(cardId);
     }
-
-    public Set<UUID> getCurrentlyTravelling() {
-        return currentlyTravelling;
-    }
-
 }
