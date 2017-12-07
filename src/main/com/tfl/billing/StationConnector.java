@@ -3,9 +3,9 @@ package com.tfl.billing;
 import com.oyster.OysterCardReader;
 
 public class StationConnector {
-    private cardTracker scanner;
+    private CardTracker scanner;
 
-    public StationConnector(cardTracker scanner){
+    public StationConnector(CardTracker scanner){
         this.scanner = scanner;
     }
 
