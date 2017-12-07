@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Oyster.iml" filepath="$PROJECT_DIR$/.idea/modules/Oyster.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/helloworld.iml" filepath="$PROJECT_DIR$/src/helloworld.iml" />
     </modules>
   </component>
