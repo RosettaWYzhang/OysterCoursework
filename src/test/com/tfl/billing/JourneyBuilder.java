@@ -34,11 +34,6 @@ public class JourneyBuilder {
         return this;
     }
 
-    public JourneyBuilder withCardId(UUID cardId){
-        this.cardID = cardId;
-        return this;
-    }
-
 
 }
 
