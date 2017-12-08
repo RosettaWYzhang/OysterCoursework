@@ -55,14 +55,6 @@ public class Journey{
         this.isPeak = timeChecker.isPeak(this);
     }
 
-    public boolean getTimeIsPeak(){
-        return isPeak;
-    }
-
-    public boolean getDurationIsLong(){
-        return isLong;
-    }
-
     private JourneyType determineType(){
         checkDurationIsLong();
         checkTimeIsPeak();
@@ -77,7 +69,6 @@ public class Journey{
         }
         else
             return JourneyType.OFF_PEAK_SHORT;
-
     }
 
     private BigDecimal determinePrice(){
@@ -97,7 +88,12 @@ public class Journey{
     public JourneyType getJourneyType(){
         return journeyType;
     }
-
+    public boolean getTimeIsPeak(){
+        return isPeak;
+    }
+    public boolean getDurationIsLong(){
+        return isLong;
+    }
 
     private static class DateFormatter {
         public String format(long time) {
